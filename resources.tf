@@ -8,7 +8,7 @@ resource "aws_vpc" "environment-example-two" {
 	enable_dns_hostnames = true
 	enable_dns_support = true
    tags = {
-	   Name = "terraform-aws-vpc-exampe-2"
+	   Name = "terraform-aws-vpc-exampe-2-neil"
 	}
 }
 
@@ -26,12 +26,16 @@ resource "aws_subnet" "subnet2" {
 resource "aws_security_group" "subnetsecurity" {
 	vpc_id = "${aws_vpc.environment-example-two.id}"
 	ingress	{
-		cide_blocks = [
+		cidr_blocks = [
 			"${aws_vpc.environment-example-two.cidr_block}"
 		]
 		from_port = 80
 		to_port = 80
 		protocol = "TCP"
 	}
+	tags = {
+		Name = "Neil-tag"
+	}
   
 }
+

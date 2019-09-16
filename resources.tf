@@ -23,10 +23,10 @@ resource "aws_subnet" "subnet2" {
   availability_zone = "us-west-2b"
 }
 
-resource "aws_secity_group" "subnetsecurity" {
+resource "aws_security_group" "subnetsecurity" {
 	vpc_id = "${aws_vpc.environment-example-two.id}"
 	ingress	{
-		cider_blocks = [
+		cide_blocks = [
 			"${aws_vpc.environment-example-two.cidr_block}"
 		]
 		from_port = 80
